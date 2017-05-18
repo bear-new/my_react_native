@@ -12,6 +12,7 @@
     "react": "16.0.0-alpha.6",
     "react-dom": "^15.5.4",
     "react-native": "0.43.4",
+    "react-native-svg-uri": "^1.2.0",
     "react-native-swiper": "^1.5.4",
     "react-timer-mixin": "^0.13.3"
   },

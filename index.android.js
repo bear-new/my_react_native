@@ -4,38 +4,37 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import Index from './pages/Index';
+import React from 'react';
 import {
-    AppRegistry,
-    StyleSheet,
-    Text,
-    View,
-    Navigator,
+  AppRegistry,
+  StyleSheet,
+  Button,
+  Text,
+  View
 } from 'react-native';
+import { StackNavigator } from 'react-navigation';
+import HomeHeader from './app/pages/HomeHeader.js';
+import Home from './app/pages/Home.js';
+import ChatScreen from './app/pages/ChatScreen.js';
+import { Icon } from 'antd-mobile';
 
-export default class my_react_native extends Component {
-    renderScene (route, navigator) {
-      return <route.component navigator={navigator} />
-    }
-    render() {
-        return ( 
-          <Navigator 
-            style={styles.container}
-            renderScene={this.renderScene.bind(this)}
-            initialRoute={{
-              title: '首页',
-              component: Index,
-            }}
-          />
-        );
-    }
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    header: <HomeHeader />,
+  };
+  render() {
+    const { navigate } = this.props.navigation;
+    return (
+      <View>
+        <Home />
+        <Icon type="check" size="md" color="red" />
+      </View>)
+  }
 }
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-    }
+const my_react_native = StackNavigator({
+  Home: { screen: HomeScreen },
+  Chat: { screen: ChatScreen },
 });
 
 AppRegistry.registerComponent('my_react_native', () => my_react_native);
