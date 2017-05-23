@@ -7,17 +7,15 @@ import {
   Text,
 } from 'react-native';
 /* eslint global-require: 0 */
-import SvgUri from 'react-native-svg-uri';
+import SvgUri from '../svg/SvgUri/index.js';
 
 export default class TabBarItem extends Component {
 
   constructor(props) {
     super(props);
-    console.log(this)
     this.state = {
-      selected: this.props.selected,
       tintColor: '#F25C29',
-      unselectedTintColor: '#333',
+      unselectedTintColor: 'rgb(148, 148, 148)',
     };
   }
 
@@ -29,56 +27,56 @@ export default class TabBarItem extends Component {
       badge: React.PropTypes.string,
   }
 
-  test() {
-    console.log(111)
-  }
-
-  onPress() {
-    let selected = this.state.selected;
-    this.setState({
-      selected: !selected
-    })
-  }
-
   render() {
-    const { title, badge, selectedIcon, icon } = this.props;
-    const { selected, tintColor, unselectedTintColor } = this.state;
+    const { selected, title, badge, selectedIcon, icon, onPress } = this.props;
+    const { tintColor, unselectedTintColor } = this.state;
+    const badgeNum = badge ? badge : '';
+    const badgeStyle = badge ? styles.badge : '';
     return (
-      <TouchableWithoutFeedback onPress={this.onPress.bind(this)}>
-        <View style={{}}>
-          <View style={styles.barIconbox}>
-            <SvgUri
-              width="30"
-              height="30"
-              fill={selected ? '#000':'#000'}
-              source={selected ? selectedIcon : icon}
-            />
-            <Text>{ badge ? badge : '' }</Text>
+      <View style={styles.barItem}>
+        <TouchableWithoutFeedback onPress={onPress}>
+          <View>
+            <View style={styles.barIconbox}>
+              <SvgUri
+                width="30"
+                height="30"
+                fill={selected ? tintColor : unselectedTintColor}
+                source={icon}
+              />
+              <Text style={ badgeStyle }>{ badgeNum }</Text>
+            </View>
+            <Text style={[ styles.barItemTitle, { color: selected ? tintColor : unselectedTintColor }]}>
+              {title}
+            </Text>
           </View>
-          <Text style={[ styles.barItemTitle, { color: selected ? tintColor : unselectedTintColor }]}>
-            {title}
-          </Text>
-        </View>
-      </TouchableWithoutFeedback>
+        </TouchableWithoutFeedback>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   barItem: {
-    width: 50,
-    height: 50,
+    flex: 5,
     justifyContent: 'center',
     alignItems: 'center',
   },
   barIconbox: {
     flexDirection: 'row',
   },
-  barIcon: {
-    width: 20,
-    height: 20
+  badge: {
+    color: '#FFF',
+    backgroundColor: '#F25C29',
+    width: 15,
+    height: 15,
+    lineHeight: 15,
+    fontSize: 10,
+    textAlign: 'center',
+    borderRadius: 50,
+
   },
   barItemTitle: {
-
-  }
+    fontSize: 12,
+    paddingLeft: 4
+  },
 });

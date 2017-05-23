@@ -28,9 +28,10 @@ export default class Header extends React.Component {
         <SvgUri
           width="30"
           height="30"
-          source={{uri:'http://thenewcode.com/assets/images/thumbnails/homer-simpson.svg'}}
+          fill='#FFF'
+          source={require('../svg/SvgImage/home.svg')}
         />
-        <Text style={styles.headerTitleStyle}>生活圈</Text>
+        <Text style={styles.headerTitleStyle}>首页</Text>
       </View>
     )
   }

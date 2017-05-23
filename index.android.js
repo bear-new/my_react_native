@@ -25,9 +25,8 @@ class HomeScreen extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View>
+      <View style={{flex: 1}}>
         <Home />
-        <Icon type="check" size="md" color="red" />
       </View>)
   }
 }

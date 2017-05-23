@@ -9,24 +9,22 @@ import {
 	ScrollView,
 } from 'react-native';
 import Slider from '../components/Slider';
+import NewsList from '../components/NewsList';
 import MyTabBar from '../components/TabBar';
-import SvgUri from 'react-native-svg-uri';
 
 export default class Home extends Component {
 	
 	render () {
 		return (
-			<View>
-				<Slider />
-				<MyTabBar />
+			<View style={{flex: 1}}>
+				<View style={{flex: 2}}><Slider/></View>
+				<View style={{flex: 7}}><NewsList/></View>
+				<View style={{flex: 1}}><MyTabBar/></View>
 			</View>
 		)
 	}
 }
 
 const styles = StyleSheet.create({
-    svgStyle: {
-      width: 60,
-      height: 60
-    }
+  
 });
