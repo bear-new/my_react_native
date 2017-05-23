@@ -17,9 +17,9 @@ export default class Home extends Component {
 	render () {
 		return (
 			<View style={{flex: 1}}>
-				<View style={{flex: 2}}><Slider/></View>
-				<View style={{flex: 7}}><NewsList/></View>
-				<View style={{flex: 1}}><MyTabBar/></View>
+				<View style={{flex: 5}}><Slider/></View>
+				<View style={{flex: 14}}><NewsList/></View>
+				<View style={{flex: 2}}><MyTabBar/></View>
 			</View>
 		)
 	}

@@ -7,12 +7,6 @@ import {
     StyleSheet,
 } from 'react-native';
 
-const sliderImgs = [
-	'http://images3.c-ctrip.com/SBU/apph5/201505/16/app_home_ad16_640_128.png',
-    'http://images3.c-ctrip.com/rk/apph5/C1/201505/app_home_ad49_640_128.png',
-    'http://images3.c-ctrip.com/rk/apph5/D1/201506/app_home_ad05_640_128.jpg'
-];
-
 const dotElement = {};
 export default class Slider extends Component {
 	render() {
@@ -20,8 +14,8 @@ export default class Slider extends Component {
 			<Swiper style={styles.wrapper}
 					horizontal={true} 
 					autoplay={true}
-					autoplayTimeout={3}
-					height={70}
+					autoplayTimeout={5}
+					height={140}
 					paginationStyle={{position: 'absolute', bottom: 5}}
 					dot={<View style={{backgroundColor:'rgba(0,0,0,.2)', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, }} />}
 					activeDotStyle={{backgroundColor: 'rgba(255,255,255,.8)'}}
@@ -29,9 +23,10 @@ export default class Slider extends Component {
 					nextButton={<Text style={styles.buttonText}>›</Text>}
 					prevButton={<Text style={styles.buttonText}>‹</Text>}
 					showsButtons={true}>
-				<Image style={[styles.slide,]} source={{uri: sliderImgs[0]}}></Image>
-        		<Image style={[styles.slide,]} source={{uri: sliderImgs[1]}}></Image>
-        		<Image style={[styles.slide,]} source={{uri: sliderImgs[2]}}></Image>
+				<Image style={[styles.slide,]} source={require('../images/add1.jpg')}></Image>
+        		<Image style={[styles.slide,]} source={require('../images/add2.jpg')}></Image>
+        		<Image style={[styles.slide,]} source={require('../images/add3.png')}></Image>
+        		<Image style={[styles.slide,]} source={require('../images/add4.jpg')}></Image>
 			</Swiper>
 		)
 	}
@@ -39,11 +34,12 @@ export default class Slider extends Component {
 
 const styles = StyleSheet.create({
     wrapper: {
-    	height: 80,	
+    	height: 150,	
     },
     slide: {
-    	height: 80,
-    	resizeMode: Image.resizeMode.contain,
+    	width: 360,
+    	height: 135,
+    	resizeMode: Image.resizeMode.stretch,
     },
     buttonText: {
     	fontSize: 50,
