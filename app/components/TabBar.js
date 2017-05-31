@@ -4,7 +4,6 @@ import {
   View,
   StyleSheet
 } from 'react-native';
-/* eslint global-require: 0 */
 
 export default class MyTabBar extends Component {
 
@@ -40,6 +39,7 @@ export default class MyTabBar extends Component {
         break;
       case 'marketStatus':
         this.setState({marketStatus: true});
+        this.props.navigateMarket();
         break;
       case 'navigationStatus':
         this.setState({navigationStatus: true});
@@ -83,5 +83,7 @@ export default class MyTabBar extends Component {
 const styles = StyleSheet.create({
   tabs: {
     flexDirection: 'row',
+    paddingTop: 5,
+    borderTopColor: '#333',
   },
 });

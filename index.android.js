@@ -26,7 +26,7 @@ class HomeScreen extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={{flex: 1}}>
-        <Home />
+        <Home market={() => navigate('Chat', { user: 'Lucy' })}/>
       </View>)
   }
 }
