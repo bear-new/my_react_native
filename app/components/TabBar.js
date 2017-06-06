@@ -36,6 +36,7 @@ export default class MyTabBar extends Component {
     switch(status){
       case 'homeStatus':
         this.setState({homeStatus: true});
+        this.props.navigateHome();
         break;
       case 'marketStatus':
         this.setState({marketStatus: true});
@@ -43,9 +44,11 @@ export default class MyTabBar extends Component {
         break;
       case 'navigationStatus':
         this.setState({navigationStatus: true});
+        this.props.navigateNavigation();
         break;
       case 'myStatus':
         this.setState({myStatus: true});
+        this.props.navigateMy();
         break;
     }
   }

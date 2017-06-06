@@ -18,22 +18,14 @@ import Home from './app/pages/Home.js';
 import ChatScreen from './app/pages/ChatScreen.js';
 import { Icon } from 'antd-mobile';
 
-class HomeScreen extends React.Component {
-  static navigationOptions = {
-    header: <HomeHeader />,
-  };
+class my_react_native extends React.Component {
+
   render() {
-    const { navigate } = this.props.navigation;
     return (
       <View style={{flex: 1}}>
-        <Home market={() => navigate('Chat', { user: 'Lucy' })}/>
+        <Home />
       </View>)
   }
 }
-
-const my_react_native = StackNavigator({
-  Home: { screen: HomeScreen },
-  Chat: { screen: ChatScreen },
-});
 
 AppRegistry.registerComponent('my_react_native', () => my_react_native);
