@@ -14,7 +14,6 @@ import MarketHeader from '../pages/MarketHeader.js';
 
 import Slider from '../components/Slider';
 import NewsList from '../components/NewsList';
-import MyTabBar from '../components/TabBar';
 
 class HomePart extends Component {
 	render () {

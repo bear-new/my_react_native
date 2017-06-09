@@ -13,7 +13,8 @@ import {
   View
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import HomeHeader from './app/pages/HomeHeader.js';
+import HomeHeader from './app/components/HomeHeader.js';
+import MyTabBar from './app/components/TabBar';
 import Home from './app/pages/Home.js';
 import ChatScreen from './app/pages/ChatScreen.js';
 import { Icon } from 'antd-mobile';
