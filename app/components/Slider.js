@@ -7,8 +7,7 @@ import {
     StyleSheet,
 } from 'react-native';
 
-const dotElement = {};
-export default class Slider extends Component {
+export default class Slider extends React.Component {
 	render() {
 		return (
 			<Swiper style={styles.wrapper}

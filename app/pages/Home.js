@@ -8,95 +8,42 @@ import {
 	TouchableHighlight,
 	ScrollView,
 } from 'react-native';
+/*components*/
 import { StackNavigator } from 'react-navigation';
-import HomeHeader from '../pages/HomeHeader.js';
-import MarketHeader from '../pages/MarketHeader.js';
+import MyTabBar from '../components/TabBar';
+import navigateStatus from '../reducers/index.js';
 
-import Slider from '../components/Slider';
-import NewsList from '../components/NewsList';
+import HomeHeader from '../pages/HomeHeader.js'
+import MarketHeader from '../pages/MarketHeader.js'
+import HomePage from '../pages/HomePage.js'
+import MarketPage from '../pages/MarketPage.js'
+/*redux*/
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as NavigateActions from '../actions'
 
-class HomePart extends Component {
-	render () {
-		return (
-			<View style={{flex: 19}}>
-				<View style={{flex: 5}}><Slider/></View>
-	      		<View style={{flex: 14}}><NewsList/></View>
-			</View>
-		)
-	}
-}
+const store = createStore(navigateStatus)
 
-
-class Market extends Component {
-
-	render () {
-		return (
-			<View style={{flex: 19}}>
-				<Text>hello market</Text>
-			</View>
-		)
-	}
-}
-
-class Home extends Component {
+class Home extends React.Component {
 	
 	constructor(props) {
 	    super(props);
 	    this.state = {
-	      homeStatus: true,
-	      marketStatus: false,
-	      navigationStatus: false,
-	      myStatus: false,
-	      renderScreen: <HomePart />,
+	      	header: <HomeHeader />,
+	      	page: <HomePage />
 	    };
   	}
 
   	static navigationOptions = {
-    	header: <MarketHeader />,
-  	}
-
-  	static defaultProps={
-
-  	}
-
-  	static propTypes={
-
-  	}
-
-  	navigateHome () {
-  		this.setState({
-  			renderScreen: <HomePart />,
-  		})
-  	}
-
-  	navigateMarket () {
-  		this.setState({
-  			renderScreen: <Market />,
-  		})
-  		this.navigationOptions = {
-  			header: <HomeHeader />,
-  		}
-  	}
-
-  	navigateNavigation () {
-
-  	}
-
-  	navigateMy () {
-
+    	header: this.state.header,
   	}
 
 	render () {
-		const { renderScreen } = this.state;
-		const { market } = this.props;
 		return (
 			<View style={{flex: 1}}>
-				{ renderScreen }
+				{ this.state.page }
 				<View style={{flex: 2}}>
-					<MyTabBar navigateHome={ this.navigateHome.bind(this) } 
-					navigateMarket={ this.navigateMarket.bind(this) } 
-					navigateNavigation={ this.navigateNavigation.bind(this) }
-					navigateMy={ this.navigateMy.bind(this) }/>
+					<MyTabBar />
 				</View>
 			</View>
 		)
@@ -107,8 +54,12 @@ const HomeScreen = StackNavigator({
   	Home: { screen: Home }
 });
 
-const styles = StyleSheet.create({
-  
-});
+const mapStateToProps = state => ({
+  navigates: state.navigates
+})
+
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(NavigateActions, dispatch)
+})
 
 export default HomeScreen;

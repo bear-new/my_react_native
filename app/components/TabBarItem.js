@@ -9,7 +9,7 @@ import {
 /* eslint global-require: 0 */
 import SvgUri from '../svg/SvgUri/index.js';
 
-export default class TabBarItem extends Component {
+export default class TabBarItem extends React.Component {
 
   constructor(props) {
     super(props);

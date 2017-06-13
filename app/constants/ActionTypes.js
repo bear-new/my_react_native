@@ -1,0 +1,2 @@
+export const NAVIGATE_HOME = 'NAVIGATE_HOME'
+export const NAVIGATE_MARKET = 'NAVIGATE_MARKET'

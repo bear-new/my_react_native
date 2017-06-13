@@ -5,7 +5,7 @@ import {
   StyleSheet
 } from 'react-native';
 
-export default class MyTabBar extends Component {
+export default class MyTabBar extends React.Component {
 
   constructor(props) {
     super(props);

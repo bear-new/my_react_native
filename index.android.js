@@ -12,20 +12,25 @@ import {
   Text,
   View
 } from 'react-native';
-import { StackNavigator } from 'react-navigation';
-import HomeHeader from './app/components/HomeHeader.js';
-import MyTabBar from './app/components/TabBar';
-import Home from './app/pages/Home.js';
-import ChatScreen from './app/pages/ChatScreen.js';
-import { Icon } from 'antd-mobile';
+
+/*redux*/
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducers from './app/reducers';
+
+/*components*/
+import HomeScreen from './app/pages/Home.js';
+
+const store = createStore(reducers)
 
 class my_react_native extends React.Component {
 
   render() {
     return (
-      <View style={{flex: 1}}>
-        <Home />
-      </View>)
+      <View>
+        <HomeScreen />
+      </View>
+    )
   }
 }
 
